@@ -15,11 +15,11 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || '';
-  if (animal.trim().length === 0) {
+  const cocktailQuery = req.body.cocktail || '';
+  if (cocktailQuery.trim().length === 0) {
     res.status(400).json({
       error: {
-        message: "Please enter a valid animal",
+        message: "Please enter a valid cocktail name or ingredients",
       }
     });
     return;
@@ -28,9 +28,14 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
-      temperature: 0.6,
+      prompt: generatePrompt(cocktailQuery),
+      temperature: 0.5,
+      max_tokens: 2048
     });
+    const dataWithoutEmpty = completion.data.choices.map((d) => {
+      return d !== ""
+    })
+    console.log(completion.data.choices)
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
     // Consider adjusting the error handling logic for your use case
@@ -48,15 +53,9 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
-  const capitalizedAnimal =
-    animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
-
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+function generatePrompt(cocktails) {
+  console.log(cocktails)
+  const cocktailPrompt = cocktails.toLowerCase()
+  return `Can you list all of the ingredients in "${cocktailPrompt}" cocktail?`
+  // return `Can you list all of the ingredients for a ${cocktails} cocktail`;
 }
