@@ -61,7 +61,7 @@ export default function Home() {
   }
 
   function displayResult(result) {
-    if (!result) return "No results to display"
+    if (!result) return "Searching..."
     if (typeof result === "string") {
       result = result.split("\n")
 
