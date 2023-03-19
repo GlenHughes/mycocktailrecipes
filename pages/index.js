@@ -64,7 +64,8 @@ export default function Home() {
           <input type="submit" value="Generate" />
         </form>
         <div className={styles.result}>
-            <ul>{displayResult(result)}</ul>
+          <h3 className="recipe">Recipe</h3>
+          <ul>{displayResult(result)}</ul>
         </div>
       </main>
     </div>
