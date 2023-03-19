@@ -38,11 +38,9 @@ export default function Home() {
 
     }
     if (!result) return "<li>500 error</li>"
-    console.log(result)
-    const cocktailsAsResponse = result.shift() || result
-    return cocktailsAsResponse.map((r) => {
+    return result.filter(rItem => rItem !== "").map((r) => {
       return <li>{r.replace("-", "")}</li>
-    })
+    })  
   }
 
   return (
