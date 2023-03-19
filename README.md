@@ -1,4 +1,4 @@
-# OpenAI API Quickstart - Node.js example app
+# MyCocktailRecipes OpenAI NextJS app
 
 First look at OpenAI using NextJS for a fun cocktail recipe generator
 
