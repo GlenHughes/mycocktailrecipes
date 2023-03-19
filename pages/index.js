@@ -1,15 +1,35 @@
 import Head from "next/head"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styles from "./index.module.css"
+
+/**
+ * 
+ * @param {object} row 
+ * @param {number} delay 
+ */
+async function delayedShowRowData(data, delay = 500) {
+  return new Promise((res, rej) => {
+    return setTimeout(() => {
+      res(data)
+    }, delay)
+  })
+} 
+
+function getRecipeIngredients(recipe) {
+  const splitRecipes = recipe.split("\n")
+  return splitRecipes
+}
+
 
 export default function Home() {
   const [cocktailInput, setCocktailInput] = useState("")
   const [result, setResult] = useState()
-
+  
   async function onSubmit(event) {
     event.preventDefault()
     try {
       const cocktailSearch = cocktailInput
+      if (!!cocktailSearch) setResult("")
       const response = await fetch("/api/generate", {
         method: "POST",
         headers: {
@@ -17,16 +37,23 @@ export default function Home() {
         },
         body: JSON.stringify({ cocktail: cocktailSearch }),
       })
-
+      
       const data = await response.json()
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`)
       }
-      setResult(data.result)
-      // setCocktailInput()
+      console.log(data)
+      const recipes = getRecipeIngredients(data.result)
+      if (!recipes) {
+        throw Error("Unable to parse recipe results")
+      }
+
+      console.log(recipes)
+      setResult(recipes)
+      setCocktailInput(cocktailSearch)
     } catch(error) {
       // Consider implementing your own error handling logic here
-      console.error(error)
+      console.error("error", error)
       alert(error.message)
     }
   }
