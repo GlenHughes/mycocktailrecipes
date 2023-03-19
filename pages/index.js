@@ -22,6 +22,7 @@ function getRecipeIngredients(recipe) {
 
 
 export default function Home() {
+  const [display, setDisplay] = useState("none")
   const [cocktailInput, setCocktailInput] = useState("")
   const [result, setResult] = useState()
   
@@ -50,6 +51,7 @@ export default function Home() {
 
       console.log(recipes)
       setResult(recipes)
+      setDisplay("block")
       setCocktailInput(cocktailSearch)
     } catch(error) {
       // Consider implementing your own error handling logic here
@@ -59,7 +61,7 @@ export default function Home() {
   }
 
   function displayResult(result) {
-    if (!result) return ""
+    if (!result) return "No results to display"
     if (typeof result === "string") {
       result = result.split("\n")
 
@@ -90,7 +92,7 @@ export default function Home() {
           />
           <input type="submit" value="Generate" />
         </form>
-        <div className={styles.result}>
+        <div className={styles.result} style={{ display }}>
           <h3 className="recipe">Recipe</h3>
           <ul>{displayResult(result)}</ul>
         </div>
