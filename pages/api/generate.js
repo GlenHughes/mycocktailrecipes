@@ -56,6 +56,6 @@ export default async function (req, res) {
 function generatePrompt(cocktails) {
   console.log(cocktails)
   const cocktailPrompt = cocktails.toLowerCase()
-  return `Can you list all of the ingredients in "${cocktailPrompt}" cocktail?`
+  return `Can you list all of the ingredients with measurements in "${cocktailPrompt}" cocktail as UK metrics?`
   // return `Can you list all of the ingredients for a ${cocktails} cocktail`;
 }
