@@ -95,15 +95,19 @@
   text-align: center;
   text-decoration: underline;
   font-size: 2rem;
+  margin-top: 1rem;
 }
 .result ul {
   margin: 1.5rem;
+  padding: 0;
 }
 .result li {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   list-style-type: none;
   color: #3A3153;
   margin-bottom: 20px;
+  line-height: 3rem;
+  word-wrap: normal
 }
 
 /* typewriter */
@@ -116,6 +120,20 @@
   animation: 
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
+}
+
+@media screen and (max-width: 768px) {
+    .result {
+      width: 70%;
+    }
+    .result ul {
+      margin: .75rem;
+    }
+    .result li {
+      font-size: 1rem;
+      list-style-position: inside;
+      line-height: 2rem;
+    }
 }
 
 /* The typing effect */
