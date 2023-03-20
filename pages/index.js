@@ -80,6 +80,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+        <img src="./cocktail.svg" alt="My Cocktail Recipes" title="My Cocktail Recipes" className={styles.logo} />
         <h1>MyCocktailRecipes.com</h1>
         <p>Enter cocktail name for a recipe or ingredients for ideas</p>
         <form onSubmit={onSubmit}>
