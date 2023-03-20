@@ -1,6 +1,12 @@
 {
-  "name": "openai-quickstart-node",
+  "name": "mycocktailrecipes",
   "version": "0.1.0",
+  "author": {
+    "name": "Glen Hughes"
+  },
+  "repository": {
+    "url": "https://github.com/GlenHughes/mycocktailrecipes"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
