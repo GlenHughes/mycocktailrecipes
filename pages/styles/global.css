@@ -2,6 +2,8 @@ body {
   height: 100vh;
   width: 100vw;
   margin: 0;
-  background: rgb(148,126,207);
+  background: rgb(#000);
   background: linear-gradient(360deg, rgba(17,16,16,1) 0%, rgba(95,67,178,1) 49%, rgba(148,126,207,1) 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
