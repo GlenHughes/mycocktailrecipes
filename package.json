@@ -1,6 +1,12 @@
 {
-  "name": "openai-quickstart-node",
+  "name": "mycocktailrecipes",
   "version": "0.1.0",
+  "author": {
+    "name": "Glen Hughes"
+  },
+  "repository": {
+    "url": "https://github.com/GlenHughes/mycocktailrecipes"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -8,6 +14,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "global": "^4.4.0",
+    "netlify-cli": "^13.1.6",
     "next": "^13.1.1",
     "openai": "^3.1.0",
     "react": "^18.2.0",

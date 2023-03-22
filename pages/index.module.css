@@ -14,6 +14,23 @@
   font-style: normal;
 }
 @import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
+
+@keyframes spin {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
+  }
+}
+
+.logo {
+  max-width: 200px;
+  animation-name: spin;
+  animation-duration: 650ms;
+  animation-timing-function: linear; 
+}
+
 .main,
 .main input {
   font-size: 16px;
@@ -38,7 +55,7 @@
   text-shadow: .5px .5px #010101;
 }
 .main p {
-  color: #fff
+  color: #fff;
 }
 .main form {
   display: flex;
@@ -123,17 +140,25 @@
 }
 
 @media screen and (max-width: 768px) {
-    .result {
-      width: 70%;
-    }
-    .result ul {
-      margin: .75rem;
-    }
-    .result li {
-      font-size: 1rem;
-      list-style-position: inside;
-      line-height: 2rem;
-    }
+  .main h1 {
+    font-size: 1.5rem;
+    padding: 0 15px;
+  }
+  .main p {
+    text-align: center;
+    padding: 0 15px;
+  }
+  .result {
+    width: 70%;
+  }
+  .result ul {
+    margin: .75rem;
+  }
+  .result li {
+    font-size: 1rem;
+    list-style-position: inside;
+    line-height: 2rem;
+  }
 }
 
 /* The typing effect */
