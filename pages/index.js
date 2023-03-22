@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { useEffect, useState } from "react"
-import styles from "./index.module.css"
+import styles from "./styles/index.module.css"
 
 /**
  * 
@@ -25,6 +25,15 @@ export default function Home() {
   const [display, setDisplay] = useState("none")
   const [cocktailInput, setCocktailInput] = useState("")
   const [result, setResult] = useState()
+
+  function handleScroll(e) {
+    e.preventDefault(); //prevent the default behavior
+    const elem = document.querySelector(`.${styles.result}`)
+    console.log(styles.result, elem)
+    elem.scrollIntoView({
+      behavior: "smooth"
+    })
+  }
   
   async function onSubmit(event) {
     event.preventDefault()
@@ -89,6 +98,7 @@ export default function Home() {
             placeholder="i.e. Mojito, Sex on the beach or Peach, Vodka"
             value={cocktailInput}
             onChange={(e) => setCocktailInput(e.target.value)}
+            onClick={(e) => handleScroll(e)}
           />
           <input type="submit" value="Generate" />
         </form>
