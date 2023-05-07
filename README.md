@@ -30,7 +30,7 @@ First look at OpenAI using NextJS for a fun cocktail recipe generator
    ```powershell
    $ copy .env.example .env
    ```
-6. Add your [API key](https://platform.openai.com/account/api-keys) to the newly created `.env` file
+6. Add your [API key](https://platform.openai.com/account/api-keys) and [REDIS_URL, REDIS_PASSWORD and REDIS_PORT](https://app.redislabs.com/) to the newly created `.env` file
 
 7. Run the app
 
