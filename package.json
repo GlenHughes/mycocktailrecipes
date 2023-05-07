@@ -8,6 +8,7 @@
     "url": "https://github.com/GlenHughes/mycocktailrecipes"
   },
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
