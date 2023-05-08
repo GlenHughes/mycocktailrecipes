@@ -11,6 +11,7 @@
   "type": "module",
   "scripts": {
     "dev": "next dev",
+    "dev-secure": "node server.js",
     "build": "next build",
     "start": "next start"
   },
